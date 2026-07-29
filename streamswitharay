@@ -1,0 +1,20 @@
+package day7;
+
+import java.util.Arrays;
+
+public class streamswitharray {
+    public static void shortlist(double[][] arr){
+        for(double[] row:arr){
+            double[] temp=Arrays.stream(row).filter(each->each>10.0).toArray();
+            Arrays.stream(temp).forEach(data->System.out.println(data));
+        }
+    }
+    public static void main(String[] args) {
+        double[][] remuniation={
+            {9.2,12.6,12.5},
+            {12.5,9.0,6.0,7.0},
+            {3.4,5.6}
+        };
+        shortlist(remuniation);
+    }
+}
