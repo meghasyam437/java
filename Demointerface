@@ -1,0 +1,20 @@
+package DAY12;
+interface Drive{
+    double basic = 30.5;
+    ///non  abtract method not allowed
+    public void fareCalculate(double distance);
+
+}
+public class DemoFace implements Drive{
+    public void fareCalculate(double distance)
+    {System.out.println(basic+(distance*10));}
+    public static void main(String[]arr){
+        DemoFace face= new DemoFace();
+        System.err.println(face.basic);
+        face.fareCalculate(0.300);
+        face.fareCalculate(5.0);
+        face.fareCalculate(12.0);
+        face.fareCalculate(13.5);
+        face.fareCalculate(259);
+    }
+}
