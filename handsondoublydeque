@@ -1,0 +1,18 @@
+package day15;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+public class handsondoubleyqueue {
+    public static void main(String[] args) {
+        Deque dq=new ArrayDeque<>();
+        dq.offerLast("NUnit");dq.offer(3.1);dq.offer(new int[]{45,92});
+        dq.offerFirst('W');dq.offer(7.6F);
+        System.out.println(dq);
+        dq.pollLast();System.out.println(dq.peekLast());
+        System.out.println(dq.contains(7.6F));
+        dq.poll();
+        System.out.println(dq.peek());
+        dq.parallelStream().forEachOrdered(System.out::println);
+    }
+}
