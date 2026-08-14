@@ -1,0 +1,14 @@
+lass Solution {
+    public int numFriendRequests(int[] ages) {
+        Arrays.sort(ages);
+        int size=ages.length,result=0,p1=0,p2=0;
+        for(int ind=0;ind<size;ind++){
+            if(ages[ind]<15) continue;
+
+            while(p1<size&&ages[p1]<=0.5*ages[ind]+7) p1++;
+            while(p2+1<size&&ages[p2+1]<=ages[ind]) p2++;
+            result+=p2-p1;
+            }
+            return result;
+    }
+}
