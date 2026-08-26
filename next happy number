@@ -1,0 +1,27 @@
+class Solution {
+    public int nextHappy(int n) {
+        int candidate = n + 1;
+        while (!isHappy(candidate)) {
+            candidate++;
+        }
+        return candidate;
+    }
+
+    private boolean isHappy(int num) {
+        if (num == 1 || num == 7) {
+            return true;
+        }
+        if (num < 10) {
+            return false;
+        }
+        
+        int sum = 0;
+        while (num > 0) {
+            int digit = num % 10;
+            sum += digit * digit;
+            num /= 10;
+        }
+        
+        return isHappy(sum);
+    }
+}
