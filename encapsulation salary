@@ -1,0 +1,19 @@
+class Employe{
+    private double salary;
+    void setSalary(double salary){
+        if(salary>0){
+            this.salary=salary;
+        }
+    }
+    void display(){
+        System.out.println("Salary="+salary);
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Employe employee=new Employe();
+		employee.setSalary(25000);
+		employee.display();
+	}
+}
