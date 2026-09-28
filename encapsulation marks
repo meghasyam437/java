@@ -1,0 +1,19 @@
+class Student{
+   private int marks;
+   void setMarks(int marks){
+       if(marks>0&&marks<=100){
+           this.marks=marks;
+       }
+   }
+void display(){
+    System.out.println("Marks="+marks);
+}
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Student student=new Student();
+		student.setMarks(80);
+		student.display();
+	}
+}
