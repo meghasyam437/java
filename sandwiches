@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() {
+    int B, H, C;
+    scanf("%d %d %d", &B, &H, &C);
+
+    int sandwiches = B / 2;
+
+    if (H + C < sandwiches) {
+        sandwiches = H + C;
+    }
+
+    printf("%d\n", sandwiches);
+
+    return 0;
+}
