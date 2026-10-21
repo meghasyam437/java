@@ -1,0 +1,54 @@
+class Solution {
+    public void eraseAt(ArrayDeque<Integer> deq, int x) {
+        // Check if position x is within valid bounds
+        if (x < 0 || x >= deq.size()) {
+            return;
+        }
+        
+        // Temporary deque to store elements before index x
+        ArrayDeque<Integer> temp = new ArrayDeque<>();
+        for (int i = 0; i < x; i++) {
+            temp.addLast(deq.pollFirst());
+        }
+        
+        // Remove the element at index x
+        deq.pollFirst();
+        
+        // Restore elements back to the front of the deque
+        while (!temp.isEmpty()) {
+            deq.addFirst(temp.pollLast());
+        }
+    }
+
+    public void eraseInRange(ArrayDeque<Integer> deq, int start, int end) {
+        // If range is invalid or start equals end, return
+        if (start >= end || start < 0) {
+            return;
+        }
+        
+        ArrayDeque<Integer> temp = new ArrayDeque<>();
+        int currentIndex = 0;
+        
+        // Move elements before 'start' to the temporary deque
+        while (currentIndex < start && !deq.isEmpty()) {
+            temp.addLast(deq.pollFirst());
+            currentIndex++;
+        }
+        
+        // Remove/skip elements within the range [start, end)
+        while (currentIndex < end && !deq.isEmpty()) {
+            deq.pollFirst();
+            currentIndex++;
+        }
+        
+        // Restore the prefix elements back to the front in original order
+        while (!temp.isEmpty()) {
+            deq.addFirst(temp.pollLast());
+        }
+    }
+
+    public void eraseAll(ArrayDeque<Integer> deq) {
+        // Clear all elements from the deque
+        deq.clear();
+    }
+}
