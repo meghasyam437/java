@@ -1,0 +1,20 @@
+import java.util.List;
+import java.util.Collections;
+import java.util.Arrays;
+
+class Solution {
+    public int getMaxVal(List<Integer> arr, int k) {
+        // Sort the list in ascending order
+        Collections.sort(arr);
+        
+        int n = arr.size();
+        int maxSum = 0;
+        
+        // Sum the last k elements (the largest k elements)
+        for (int i = n - 1; i >= n - k; i--) {
+            maxSum += arr.get(i);
+        }
+        
+        return maxSum;
+    }
+}
