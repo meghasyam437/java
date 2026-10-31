@@ -1,0 +1,29 @@
+class Solution {
+    public int check(int[] nums,int days,int cap){
+        int sum=nums[0],day=1;
+        for(int i=1;i<nums.length;i++){
+            sum+=nums[i];
+            if(sum>cap){day++;sum=nums[i];}
+        }
+        if(days>=day) return 1;
+        else return 0;
+    }
+    public int shipWithinDays(int[] nums, int days) {
+        int s=nums[0],e=nums[0];
+        int n=nums.length;
+        for(int i=1;i<n;i++){
+            e+=nums[i];
+            if(nums[i]>s) s=nums[i];
+        }
+        int ans=e;
+        while(s<e){
+            int mid=(s+e)/2;
+            int res=check(nums,days,mid);
+            if(res==1){
+                e=mid;
+                if(ans>mid){ans=mid;}
+            }else s=mid+1;
+        }
+        return ans;
+    }
+}
