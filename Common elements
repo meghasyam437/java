@@ -1,0 +1,28 @@
+import java.util.*;
+
+class Solution {
+    public static ArrayList<Integer> commonElements(int a[], int b[]) {
+        ArrayList<Integer> result = new ArrayList<>();
+
+        int[] freqA = new int[100001];
+        int[] freqB = new int[100001];
+
+        for (int x : a) {
+            freqA[x]++;
+        }
+
+        for (int x : b) {
+            freqB[x]++;
+        }
+
+        for (int i = 1; i <= 100000; i++) {
+            int count = Math.min(freqA[i], freqB[i]);
+
+            while (count-- > 0) {
+                result.add(i);
+            }
+        }
+
+        return result;
+    }
+}
