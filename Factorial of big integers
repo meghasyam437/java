@@ -1,0 +1,23 @@
+import java.math.BigInteger;
+
+class Solution {
+    public static BigInteger fib(int n) {
+        // Base cases for n = 1 or n = 2
+        if (n == 1 || n == 2) {
+            return BigInteger.ONE;
+        }
+
+        BigInteger prev2 = BigInteger.ONE; // represents fib(1)
+        BigInteger prev1 = BigInteger.ONE; // represents fib(2)
+        BigInteger current = BigInteger.ZERO;
+
+        // Iterate from 3 to n to calculate the nth Fibonacci number
+        for (int i = 3; i <= n; i++) {
+            current = prev1.add(prev2);
+            prev2 = prev1;
+            prev1 = current;
+        }
+
+        return current;
+    }
+}
