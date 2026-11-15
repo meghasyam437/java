@@ -1,0 +1,7 @@
+class Solution {
+    public String sortString(String s) {
+        char[] chars = s.toCharArray();
+        java.util.Arrays.sort(chars);
+        return new String(chars);
+    }
+}
