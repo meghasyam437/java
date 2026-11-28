@@ -1,0 +1,13 @@
+import java.util.HashSet;
+
+class Solution {
+    public boolean checkElements(int start, int end, int[] arr) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int num : arr) {
+            if (num >= start && num <= end) {
+                set.add(num);
+            }
+        }
+        return set.size() == (end - start + 1);
+    }
+}
